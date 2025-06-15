@@ -1,18 +1,134 @@
+
+import { Shield } from 'lucide-react';
+import { ShoppingBag } from "lucide-react";
+import { Pill } from 'lucide-react';
+import { Newspaper } from 'lucide-react';
+import { HandHelping } from 'lucide-react';
+import { Calendar } from 'lucide-react';
+import { Heart } from 'lucide-react';
+import { Handshake } from 'lucide-react';
+
+
+
+
+import { BellDot } from "lucide-react";
+import { BookOpenText } from "lucide-react";
+import { BriefcaseBusiness } from "lucide-react";
+import { CircleHelp } from "lucide-react";
+import { TriangleAlert } from "lucide-react";
+import { Users } from "lucide-react";
+import { Lock } from "lucide-react";
+import { Dessert } from "lucide-react";
+import { ShieldPlus } from "lucide-react";
+import { MessageCircle } from "lucide-react";
+import { Images } from "lucide-react";
+import { Figma } from "lucide-react";
+import { Play } from "lucide-react";
+import { MapPin } from "lucide-react";
+import { Database } from "lucide-react";
+import { PanelsTopLeft } from "lucide-react";
+import { PanelTop } from "lucide-react";
+
+type SubMenuItem = {
+  name?: string;
+  desc?: string;
+  href?: string;
+  icon?: React.ElementType; // or use `JSX.Element` if you're directly passing React elements
+};
+
 // Define the type for navItems array
 type NavItem = {
-  label: string;
-  href: string;
+  name: string;
+  href?: string;
+  subMenuHeading?: string[],
+  subMenu?: SubMenuItem[],
+  gridCols?: number;
 };
 
 // Define array using the type
-export const navItems: NavItem[] = [
-  { label: "Services", 
-    href: "https://www.typescriptlang.org/docs/" 
-
+export const Menus: NavItem[] = [
+  
+  { name: "Services", 
+    subMenuHeading: ["Pharmacy", "Insurance"],
+    gridCols: 2,
+    subMenu: [
+      {
+        name: "Pharmacy Management",
+        desc: "Optimize pharmacy resources",
+        href: "https://www.typescriptlang.org/docs/",
+        icon: Pill,
+      },
+      {
+        name: "Medicine Supply",
+        desc: "Order and track medications",
+        href: "https://www.typescriptlang.org/docs/",
+        icon: ShoppingBag,
+      },
+      {
+        name: "Health Insurance",
+        desc: "Plans and coverage options",
+        href: "https://www.typescriptlang.org/docs/",
+        icon: Shield,
+      },]
   },
 
-  { label: "Impact", href: "#" },
-  { label: "Resources", href: "#" },
-  { label: "Location", href: "#" },
-  { label: "About us", href: "#" },
+{ name: "Impact", href: "#" },
+
+  { name: "Resources",
+    subMenuHeading: ["Get started", "Support", "Updates"],
+    gridCols: 2,
+    subMenu: [
+      {
+        name: "How to Book",
+        desc: "Step-by-step booking guide",
+        icon: Calendar,
+        href: "#"
+      },
+      {
+        name: "Help Center",
+        desc: "FAQs and support resources",
+        icon: HandHelping,
+        href: "#"
+      },
+      {
+      name: "Latest Updates",
+      desc: "Platform news and changes",
+      icon: Newspaper, 
+      href: "#"
+    },
+    ]
+    },
+
+  { name: "Location", href: "#" },
+  
+  { name: "About us", 
+    subMenuHeading: ["Company", "Team", "Trust"],
+    gridCols: 2,
+    subMenu: [
+      {
+        name: "Our Mission",
+        desc: "Improving access to healthcare services",
+        icon: Heart,
+        href: "#"
+      },
+      {
+        name: "Our Team",
+        desc: "Healthcare and tech professionals",
+        icon: Users,
+        href: "#"
+      },
+      {
+        name: "Partners & Clients",
+        desc: "Hospitals, pharmacies, and insurers",
+        icon: Handshake,
+        href: "#"
+      },
+      {
+        name: "Data Security",
+        desc: "Keeping health information safe",
+        icon: Lock,
+        href: "#"
+      },]
+      
+   },
 ];

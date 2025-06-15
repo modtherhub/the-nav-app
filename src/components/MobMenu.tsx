@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import {navItems} from '../contant/index'
+import {Menus} from '../contant/index'
 
 
 const MobMenu = () => {
@@ -34,9 +34,9 @@ const MobMenu = () => {
             {mobileDrawerOpen && (
             <div className="fixed right-0 z-20 bg-gray-400 w-full p-12 flex flex-col justify-center items-center lg:hidden">
                 <ul>
-                  {navItems.map((item, index) => (
+                  {Menus.map((item, index) => (
                     <li key={index} className="py-4">
-                      <a href={item.href}>{item.label}</a>
+                      <a href={item.href}>{item.name}</a>
                     </li>
                   ))}
                 </ul>
