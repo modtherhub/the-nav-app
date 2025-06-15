@@ -72,7 +72,7 @@ export const Menus: NavItem[] = [
       },]
   },
 
-{ name: "Impact", href: "#" },
+{ name: "Impact", href: "https://devdojo.com/tailwindcss/buttons" },
 
   { name: "Resources",
     subMenuHeading: ["Get started", "Support", "Updates"],
@@ -82,24 +82,24 @@ export const Menus: NavItem[] = [
         name: "How to Book",
         desc: "Step-by-step booking guide",
         icon: Calendar,
-        href: "#"
+        href: "https://devdojo.com/tailwindcss/buttons"
       },
       {
         name: "Help Center",
         desc: "FAQs and support resources",
         icon: HandHelping,
-        href: "#"
+        href: "https://devdojo.com/tailwindcss/buttons"
       },
       {
       name: "Latest Updates",
       desc: "Platform news and changes",
       icon: Newspaper, 
-      href: "#"
+      href: "https://devdojo.com/tailwindcss/buttons"
     },
     ]
     },
 
-  { name: "Location", href: "#" },
+  { name: "Location", href: "https://www.geekboots.com/nextjs/add-background-image-using-custom-tailwind-css-configuration" },
   
   { name: "About us", 
     subMenuHeading: ["Company", "Team", "Trust"],
@@ -109,25 +109,25 @@ export const Menus: NavItem[] = [
         name: "Our Mission",
         desc: "Improving access to healthcare services",
         icon: Heart,
-        href: "#"
+        href: "https://devdojo.com/tailwindcss/buttons"
       },
       {
         name: "Our Team",
         desc: "Healthcare and tech professionals",
         icon: Users,
-        href: "#"
+        href: "https://devdojo.com/tailwindcss/buttons"
       },
       {
         name: "Partners & Clients",
         desc: "Hospitals, pharmacies, and insurers",
         icon: Handshake,
-        href: "#"
+        href: "https://devdojo.com/tailwindcss/buttons"
       },
       {
         name: "Data Security",
         desc: "Keeping health information safe",
         icon: Lock,
-        href: "#"
+        href: "https://devdojo.com/tailwindcss/buttons"
       },]
       
    },

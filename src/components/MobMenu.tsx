@@ -1,56 +1,111 @@
 import { useState } from "react";
-
+import { ChevronDown } from "lucide-react";
 import {Menus} from '../contant/index'
-
+import { motion } from 'motion/react';
+import { a, hr } from "motion/react-client";
 
 const MobMenu = () => {
-    const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+    // const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const [clicked, setClicked] = useState(null);
 
-    const toggleNavbar = () => {
-    setMobileDrawerOpen(!mobileDrawerOpen);
-    };
+    // const toggleNavbar = () => {
+    // setMobileDrawerOpen(!mobileDrawerOpen);
+    // };
+
+    const toggleDrawer = () => {
+    setIsOpen(!isOpen);
+    setClicked(null);
+  };
+
+    const subMenuDrawer = {
+    enter: {
+      height: "auto",
+      overflow: "hidden",
+    },
+    exit: {
+      height: 0,
+      overflow: "hidden",
+    },
+  };
 
     return (
         <div className="lg:hidden md:flex flex-col justify-end">
-            <button onClick={toggleNavbar}>
-
-              <div className="group flex cursor-pointer items-center justify-center rounded-3xl bg-white p-2 hover:bg-slate-200">
+            {/* Menu Icon*/ }
+            <button onClick={toggleDrawer}>
+              <div className="flex cursor-pointer items-center justify-center rounded-md bg-white p-2 hover:bg-slate-100">
                 <div className="space-y-2 flex flex-col items-end">
                   <span
-                    className={`block h-1 w-10 origin-center rounded-full bg-slate-500 transition-transform ease-in-out
-                      ${mobileDrawerOpen ? 'translate-y-1.5 rotate-45' : ''}
-                      group-hover:translate-y-1.5 group-hover:rotate-45`}
+                    className={`block h-0.5 w-6 origin-center rounded-md bg-slate-600 transition-transform ease-in-out duration-300
+                      ${isOpen ? 'translate-y-[3.2px] rotate-45 ' : ''}
+                    `}
                   ></span>
                   <span
-                    className={`block h-1 w-6 origin-center rounded-full bg-orange-500 transition-all ease-in-out
-                      ${mobileDrawerOpen ? 'w-10 -translate-y-1.5 -rotate-45' : ''}
-                      group-hover:w-10 group-hover:-translate-y-1.5 group-hover:-rotate-45`}
+                    className={`block h-0.5 w-3 origin-center rounded-md bg-emerald-500 transition-transform ease-in-out duration-300
+                      ${isOpen ? 'w-6 -translate-y-1.5 -rotate-45' : ''}
+                    `}
                   ></span>
                 </div>
               </div>
-
             </button>
             
-            {mobileDrawerOpen && (
-            <div className="fixed right-0 z-20 bg-gray-400 w-full p-12 flex flex-col justify-center items-center lg:hidden">
-                <ul>
-                  {Menus.map((item, index) => (
-                    <li key={index} className="py-4">
-                      <a href={item.href}>{item.name}</a>
-                    </li>
-                  ))}
-                </ul>
-                <div className="space-x-6 ">
-                    <a href="#" className="py-2 px-3 border rounded-md">
-                      Log In
-                    </a>
-                    <a href="#" className="py-2 px-3 rounded-md ">
-                        Sing Up
-                    </a>
-                </div>
-            </div>
-        )}
-        </div>
+            
+        
+          <motion.div
+          className="fixed z-20 left-0 right-0 top-16 overflow-y-auto h-full backdrop-blur text-black p-6 pb-20"
+          initial={{ x: "-100%" }}
+          animate={{ x: isOpen ? "0%" : "-100%" }}
+        >
+          <ul>
+            {Menus.map(({ name, subMenu, href}, i) => {
+              const isClicked = clicked === i;
+              const hasSubMenu = subMenu?.length;
+              return (
+                <li key={name} className="">
+                  {/* The submenu */}
+                  <a href={href} target="_blank">
+                  <span
+                    className="flex-center-between p-4 hover:bg-[#c6ac8f21] rounded-md cursor-pointer relative"
+                    onClick={() => setClicked(isClicked ? null : i)}
+                  >
+                    {name}
+                    {hasSubMenu && (
+                      <ChevronDown
+                        className={`ml-auto ${isClicked && "rotate-180"} `}
+                      />
+                    )}
+                  </span>
+                  </a>
+                  
+                  {hasSubMenu && (
+                    <motion.ul
+                      initial="exit"
+                      animate={isClicked ? "enter" : "exit"}
+                      variants={subMenuDrawer}
+                      className="ml-5"
+                    >
+                      {subMenu.map(({ name,href, icon: Icon }) => (
+                        <a href={href} target="_blank">
+                        <li
+                          key={name}
+                          className="p-2 flex-center hover:bg-[#c6ac8f7e] rounded-md gap-x-2 cursor-pointer"
+                        >
+                          
+                          <Icon size={16} />
+                          {name}
+                          
+                        </li>
+                        </a>
+                        
+                      ))}
+                    </motion.ul>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </motion.div>
+      </div>
 
         
     )

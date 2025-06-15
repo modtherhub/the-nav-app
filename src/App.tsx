@@ -1,7 +1,7 @@
 
 import Navbar from './components/Navbar'
 import bannar from './assets/bannar.svg'
-
+import HomePage from './components/HomePage'
 
 function App() {
 
@@ -17,6 +17,7 @@ function App() {
   {/* Foreground content */}
   <div className="relative z-10">
     <Navbar />
+    <HomePage/>
   </div>
 </div>
 

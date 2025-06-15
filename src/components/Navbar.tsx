@@ -24,21 +24,17 @@ const Navbar = () => {
           {/* Actions and Mobile Menu */}
           <div className="flex items-center gap-x-5">
          
-            <button
-            aria-label="Sign up"
-            className="bg-white px-3 py-1 text-sm shadow rounded-md hover:shadow-xs transition duration-300"
-          >
-            Sign up
-          </button>
-          <button
-            aria-label="Log in"
-            className="bg-white px-2 py-1 text-sm shadow rounded-md hover:shadow-xs transition duration-300"
-          >
-            Log in
-          </button>
+            <div className="space-x-6 ">
+                    <a href="#" className="bg-white px-3 py-1 text-sm  shadow-xl rounded-md hover:shadow-2xl hover:scale-110 transition duration-300">
+                      Log In
+                    </a>
+                    <a href="#" className="bg-white px-3 py-1 text-sm shadow-xl rounded-md hover:shadow-2xl hover:scale-110 transition duration-300">
+                        Sing Up
+                    </a>
+                </div>
          
           <div className="lg:hidden">
-            <MobMenu Menus={Menus} />
+            <MobMenu/>
           </div>
         </div>
 
